@@ -1,1 +1,31 @@
-hello
+*{
+  background-color: lavender;
+}
+
+.title{
+  align-text: center;
+}
+
+h1, h2, p{
+  font-family: 'Philosopher', sans-serif;
+}
+#game{
+  border:2px;
+  border-style: groove;
+}
+
+table{
+  border-style: groove;
+  padding: 5px;
+}
+button{
+  width:75%;
+  height:50px;
+  color: crimson;
+  background-color: thistle;
+}
+
+#description{
+  font-size: 20px
+
+}
