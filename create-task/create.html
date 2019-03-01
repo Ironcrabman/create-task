@@ -2,6 +2,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="create.css">
 <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+<script src="create.js"></script>
   <title>
     The tower of Placeholder
   </title>
@@ -11,15 +12,14 @@
     <h1>Welcome to The Tower of Placeholder</h1>
     <h2>On your journey you will ascend the tower getting diffrent items and facing many challenges all to defeat the final boss</h2>
   </div>
-</br>
-</br>
   <div align="center">
     <table>
-      <tr><td colspan="2"><canvas id="art" width="600px" height="300px" style="border:1px solid #000000;"></canvas></td></tr>
-      <tr><td colspan="2"><p align="center" id="description">Click a Button to Begin</p></td></tr>
+      <tr><td colspan="2" height="300px" width="600px"><img src="images/title.png"></td></tr>
+      <tr><td colspan="2"><p align="center" id="descrip">How will you journey through the tower?</p></td></tr>
       <tr align="center">
-        <td><button>A</button></td>
-        <td><button>B</button></td>
+        <td><button id="A"onclick="choices(1);">"As Jariah the mage seeing knowledge about the ancient dragon and monsters within"</button></td>
+        <td><button id="B"onclick="choices(2);">B</button></td>
       </tr>
     </table>
+  </div>
 </body>
