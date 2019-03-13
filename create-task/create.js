@@ -67,21 +67,33 @@ let image = document.getElementById('pic')
        image.src = "images/skeleton.png"
        description.innerHTML = 'As you make it into the tower, the doors creak as you push them open causing a long dead warrior to awaken'
        buttonA.innerHTML = 'You cast a beam of white light at it'
-       buttonB.innerHTML = 'You look around the room'
+       buttonB.innerHTML = 'You try and sneak around the room using the shadows and rocks'
      }
 
      if(i == 5) {
         buttonA.onclick = combat = Math.random()
         if(combat >= 0.5){
+          image.src = "images/swordpile.png"
           description.innerHTML = 'The beam hits the skelton and his causes his bones disintigrate'//Call of Duty Hit Marker Noise Here
-          buttonA.innerHTML = ''
-          buttonB.innerHTML = ''
+          buttonA.innerHTML = 'Head up to the next floor taking a bone with you'
+          buttonB.innerHTML = 'Take his sword and move onto the next floor'
         }else{
-          description.innerHTML = 'The skelton rushes at you as you shoot the beam causing '
-          buttonA.innerHTML = ''
-          buttonB.innerHTML = ''
+          health -= 10
+          image.src = "images/swordpile.png"
+          description.innerHTML = 'The skelton rushes at you as you shoot the beam causing you to only just hit him as you get slahed by his sword'
+          buttonA.innerHTML = 'Heal the wound and head to the next floor'
+          buttonB.innerHTML = 'Move onto the next floor taking his sword with you'
         }
       }
+
+      if (i==6) {
+        health +=7
+        console.log(health)
+          description.innerHTML = 'The next room is empty accept for a large statue, when you walk up to it it asks you a question "What is it that we love more than life, fear more than death, the rich want it, the poor have it, and the miser spends it?"'
+          buttonA.innerHTML = 'Nothing'
+          buttonB.innerHTML = 'Family'
+      }
+
 
   }else if (which == 2){
     if (i == 0){
@@ -135,8 +147,8 @@ let image = document.getElementById('pic')
       description.innerHTML = "You got gamed by the alligator"
       buttonA.innerHTML = "Restart Your Journey"
       buttonB.innerHTML = "Quit the Game"
-      buttonA.onclick = location.reload();
-      buttonB.onclick = window.close() ///////fix
+      buttonA.onclick = refresh();
+      buttonB.onclick = exit();
     }
     }
 }
@@ -147,6 +159,35 @@ let image = document.getElementById('pic')
     buttonA.innerHTML = 'You cast a beam of white light at it'
     buttonB.innerHTML = 'You look around the room'
   }
+
+ if(i == 5){
+   if(sneak >= 7)
+   image.src =
+   description.innerHTML = 'As you sneak around the room the sketon does not notice you'
+   buttonA.innerHTML = 'Go right to the door and open it to go to the next floor'
+   buttonB.innerHTML = 'Take a longer path around the room that is darker to get to the next floor'
+ }else{
+   health -= 20
+   description.innerHTML = 'As you sneak around the room the sketon notices you and jabs you with his sword forcing you to shoot a blast of light at him causing him to disintigrate'
+   buttonA.innerHTML = 'Heal the wound and head to the next floor'
+   buttonB.innerHTML = 'Take his sword with you and head to the next floor'
+ }
+
+ if (i==6) {
+   attack += 7
+   console.log(health)
+     description.innerHTML = 'The next room is empty accept for a large statue, when you walk up to it it asks you a question "What is it that we love more than life, fear more than death, the rich want it, the poor have it, and the miser spends it?"'
+     buttonA.innerHTML = 'Nothing'
+     buttonB.innerHTML = 'Family'
+ }
+
+if (i==7) {
+     description.innerHTML = 'Black Smoke spews from the stues mouth cauing you to choke with every breath you take'
+     buttonA.innerHTML = 'Let the room fill up with smoke as you hold your breath'
+     buttonB.innerHTML = 'Try to break down the statue'
+
+}
+
 
 
 
@@ -163,4 +204,12 @@ function eventgen() {
     special = false
     return special
   }
+}
+
+function refresh(){
+  window.location = "create.html"
+}
+
+function exit(){
+  window.location = "https://www.google.com/"
 }
