@@ -53,13 +53,13 @@ let image = document.getElementById('pic')
 
    if(i==3){
      if (attack > 5){
-       description.innerHTML = 'The alligator leaves your boat alone and sinks back into the water'
-       buttonA.innerHTML = 'You tie up the boat and head inside'
-       buttonB.innerHTML = 'You let the boat float away and head inside the tower'
+       description.innerHTML = 'The alligator leaves you alone and sinks back into the water'
+       buttonA.innerHTML = 'You dry off and head inside'
+       buttonB.innerHTML = 'You head inside immediatly'
      } else {
-       description.innerHTML = 'The alligator bites at your staff causing you to fall over but then leaves you alone'
-       buttonA.innerHTML = 'You tie up the boat and head inside'
-       buttonB.innerHTML = 'You let the boat float away and head inside the tower'
+       description.innerHTML = 'The alligator bites at your staff but then leaves you alone'
+       buttonA.innerHTML = 'You dry off and head inside'
+       buttonB.innerHTML = 'make camp and rest for a day then head inside'
      }
    }
 
@@ -73,6 +73,7 @@ let image = document.getElementById('pic')
      if(i == 5) {
         buttonA.onclick = combat = Math.random()
         if(combat >= 0.5){
+          console.log(i)
           image.src = "images/swordpile.png"
           description.innerHTML = 'The beam hits the skelton and his causes his bones disintigrate'//Call of Duty Hit Marker Noise Here
           buttonA.innerHTML = 'Head up to the next floor taking a bone with you'
@@ -93,6 +94,30 @@ let image = document.getElementById('pic')
           buttonA.innerHTML = 'Nothing'
           buttonB.innerHTML = 'Family'
       }
+
+      if (i==7){
+        i++
+    }
+
+    if (i==8) {
+        if (check == "smoke"){
+          image.src = "images/darksouls.jpg"
+          description.innerHTML = "The smoke keeps pouring out of the statues mouth and eventually you can no longer breath"
+          buttonA.innerHTML = "Restart Your Journey"
+          buttonB.innerHTML = "Quit the Game"
+          buttonA.value = "Restart"
+          buttonB.value = "Quit"
+        }else {
+          i++
+        }
+}
+
+  if(i==9) {
+      description.innerHTML = 'Well done on answering my riddle you have freed me from the curse binding me to this statue, continue on your journey up the tower but before you go please accept my gift'
+      buttonA.innerHTML = 'Take his gift of strength'
+      buttonB.innerHTML = 'Say you are honored but will have to refuse'
+  }
+
 
 
   }else if (which == 2){
@@ -147,8 +172,8 @@ let image = document.getElementById('pic')
       description.innerHTML = "You got gamed by the alligator"
       buttonA.innerHTML = "Restart Your Journey"
       buttonB.innerHTML = "Quit the Game"
-      buttonA.onclick = refresh();
-      buttonB.onclick = exit();
+      buttonA.value = "Restart"
+      buttonB.value = "Quit"
     }
     }
 }
@@ -161,38 +186,63 @@ let image = document.getElementById('pic')
   }
 
  if(i == 5){
-   if(sneak >= 7)
-   image.src =
+   if(stealth >= 7){
+   image.src = "images/sneak.png"
    description.innerHTML = 'As you sneak around the room the sketon does not notice you'
    buttonA.innerHTML = 'Go right to the door and open it to go to the next floor'
    buttonB.innerHTML = 'Take a longer path around the room that is darker to get to the next floor'
  }else{
    health -= 20
+   console.log(i)
+   image.src ="images/swordpile.png"
    description.innerHTML = 'As you sneak around the room the sketon notices you and jabs you with his sword forcing you to shoot a blast of light at him causing him to disintigrate'
    buttonA.innerHTML = 'Heal the wound and head to the next floor'
    buttonB.innerHTML = 'Take his sword with you and head to the next floor'
  }
-
+}
  if (i==6) {
    attack += 7
    console.log(health)
+    image.src ="images/statue.png"
      description.innerHTML = 'The next room is empty accept for a large statue, when you walk up to it it asks you a question "What is it that we love more than life, fear more than death, the rich want it, the poor have it, and the miser spends it?"'
      buttonA.innerHTML = 'Nothing'
      buttonB.innerHTML = 'Family'
  }
 
 if (i==7) {
-     description.innerHTML = 'Black Smoke spews from the stues mouth cauing you to choke with every breath you take'
+     check = "smoke"
+     image.src = "images/smoked.png"
+     description.innerHTML = 'The statue booms "WRONG", as he speaks black Smoke spews from the statues mouth causing you to choke with every breath you take'
      buttonA.innerHTML = 'Let the room fill up with smoke as you hold your breath'
      buttonB.innerHTML = 'Try to break down the statue'
+}
+
+if (i==8) {
+  if (check == "smoke"){
+      image.src = "images/darksouls.jpg"
+      description.innerHTML = "The smoke keeps pouring out of the statues mouth and eventually you can no longer breath"
+      buttonA.innerHTML = "Restart Your Journey"
+      buttonB.innerHTML = "Quit the Game"
+      buttonA.value = "Restart"
+      buttonB.value = "Quit"
+  }else {
+    i++
+  }
+}
+
+if(i==9) {
 
 }
 
-
-
-
   }
 i++
+
+
+if (buttonA.value == "Restart"){
+  buttonA.onclick = refresh();
+}else if(buttonB.value == "Quit"){
+  buttonB.onclick= exit();
+}
 }
 
 function eventgen() {
@@ -205,6 +255,8 @@ function eventgen() {
     return special
   }
 }
+
+
 
 function refresh(){
   window.location = "create.html"
