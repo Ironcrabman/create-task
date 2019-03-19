@@ -5,7 +5,8 @@ let attack = 0
 let name
 let special
 let check
-let combat
+let combatv
+let statue = false
 
 function choices(which) {
 let description = document.getElementById('descrip')
@@ -71,8 +72,8 @@ let image = document.getElementById('pic')
      }
 
      if(i == 5) {
-        buttonA.onclick = combat = Math.random()
-        if(combat >= 0.5){
+        combat(combatv);
+        if(combatv >= 0.5){
           console.log(i)
           image.src = "images/swordpile.png"
           description.innerHTML = 'The beam hits the skelton and his causes his bones disintigrate'//Call of Duty Hit Marker Noise Here
@@ -80,9 +81,10 @@ let image = document.getElementById('pic')
           buttonB.innerHTML = 'Take his sword and move onto the next floor'
         }else{
           health -= 10
+          console.log(i)
           image.src = "images/swordpile.png"
-          description.innerHTML = 'The skelton rushes at you as you shoot the beam causing you to only just hit him as you get slahed by his sword'
           buttonA.innerHTML = 'Heal the wound and head to the next floor'
+          description.innerHTML = 'The skelton rushes at you as you shoot the beam causing you to only just hit him as you get slahed by his sword'
           buttonB.innerHTML = 'Move onto the next floor taking his sword with you'
         }
       }
@@ -90,6 +92,7 @@ let image = document.getElementById('pic')
       if (i==6) {
         health +=7
         console.log(health)
+          image.src = "images/statue.png"
           description.innerHTML = 'The next room is empty accept for a large statue, when you walk up to it it asks you a question "What is it that we love more than life, fear more than death, the rich want it, the poor have it, and the miser spends it?"'
           buttonA.innerHTML = 'Nothing'
           buttonB.innerHTML = 'Family'
@@ -113,12 +116,54 @@ let image = document.getElementById('pic')
 }
 
   if(i==9) {
+      image.src = "images/orb.png"
       description.innerHTML = 'Well done on answering my riddle you have freed me from the curse binding me to this statue, continue on your journey up the tower but before you go please accept my gift'
       buttonA.innerHTML = 'Take his gift of strength'
       buttonB.innerHTML = 'Say you are honored but will have to refuse'
   }
 
+if(i==10){
+  attack += 10
+  description.innerHTML = 'You feel stronger than ever before as you enter the next floor'
+  buttonA.innerHTML = 'Be cautious as you enter the next floor'
+  /////You enter the floor and don't see anything
+  ///// look around or walk through
+  ////////Walk through = death
+  //////// Look around you spot the chameleeon and can fight ot sneaek
+  ////////fight links up with other path
+  ///////sneak = pass to next floor
+  buttonB.innerHTML = 'Burst into the room with magic drawn'
+}
 
+if (i==11){
+  description.innerHTML = 'You slowly open the door to the next floor being careful to make almost no noise'
+  buttonA.innerHTML = 'Look around the room before making any moves through the room'
+  ////////Walk through = death
+  //////// Look around you spot the chameleeon and can fight ot sneaek
+  ////////fight links up with other path
+  ///////sneak = pass to next floor
+  buttonB.innerHTML = 'Move around the room to the next floor'
+}
+
+if (i==12){
+  description.innerHTML = 'As you loook around the room you a GIANT CHAMELEON HANGING FROM THE CEILING STARING AT YOU'
+  buttonA.innerHTML = "Sneak around the room moving out of the chameleon's field of view and reach"
+  //////// Look around you spot the chameleeon and can fight ot sneak
+  ////////fight links up with other path
+  ///////sneak = pass to next floor
+  buttonB.innerHTML = 'Go to attack the chameleon'
+}
+
+if(i==13){
+  if(sneak >= 15){
+  description.innerHTML = "The chameleon doen't notice you as you slowly move around chamber avoiding his eye sight and making no noise"
+  buttonA.innerHTML = 'Move up to the next floor immediatly'
+  buttonB.innerHTML = ''
+
+  }else{
+
+  }
+}
 
   }else if (which == 2){
     if (i == 0){
@@ -156,6 +201,7 @@ let image = document.getElementById('pic')
         i=4
       }
     }
+
 
     if (i == 3) {
     if (check == 'magic'){
@@ -200,6 +246,7 @@ let image = document.getElementById('pic')
    buttonB.innerHTML = 'Take his sword with you and head to the next floor'
  }
 }
+
  if (i==6) {
    attack += 7
    console.log(health)
@@ -212,7 +259,7 @@ let image = document.getElementById('pic')
 if (i==7) {
      check = "smoke"
      image.src = "images/smoked.png"
-     description.innerHTML = 'The statue booms "WRONG", as he speaks black Smoke spews from the statues mouth causing you to choke with every breath you take'
+     description.innerHTML = 'The statue booms "WRONG", as he speaks smoke spews from the statues mouth causing you to choke with every breath you take'
      buttonA.innerHTML = 'Let the room fill up with smoke as you hold your breath'
      buttonB.innerHTML = 'Try to break down the statue'
 }
@@ -230,9 +277,34 @@ if (i==8) {
   }
 }
 
-if(i==9) {
-
+if(i==10) {
+  attack += 10
+  description.innerHTML = 'You feel relieved knowing you helped free the soul stuck in the statue as you move to the next floor'
+  buttonA.innerHTML = 'Be cautious as you enter the next floor'
+  /////You enter the floor and don't see anything
+  ///// look around or walk through
+  ////////Walk through = death
+  //////// Look around you spot the chameleeon and can fight ot sneaek
+  ////////fight links up with other path
+  ///////sneak = pass to next floor
+  buttonB.innerHTML = 'Burst into the room with magic drawn'
 }
+
+if(i==11){
+  i = 14
+}
+
+if(i==12){
+  image.src = "images/darksouls.jpg"
+  description.innerHTML = "As you move through the room a tongue comes out of nowhere and sticks to you pulling up towards the ceiling with no escape the last thing you see being a giant chameleon"
+  buttonA.innerHTML = "Restart Your Journey"
+  buttonB.innerHTML = "Quit the Game"
+  buttonA.value = "Restart"
+  buttonB.value = "Quit"
+}
+
+
+
 
   }
 i++
@@ -256,7 +328,9 @@ function eventgen() {
   }
 }
 
-
+function combat(combatv){
+  combatv = Math.random()
+}
 
 function refresh(){
   window.location = "create.html"
