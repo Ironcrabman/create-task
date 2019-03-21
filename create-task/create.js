@@ -1,5 +1,5 @@
 let i = 0
-let health = 0
+let health = 10
 let stealth = 0
 let attack = 0
 let name
@@ -66,7 +66,7 @@ let image = document.getElementById('pic')
 
    if(i == 4) {
        image.src = "images/skeleton.png"
-       description.innerHTML = 'As you make it into the tower, the doors creak as you push them open causing a long dead warrior to awaken'
+       description.innerHTML = 'As you push open the tower doors, they creak and moan causing a long dead warrior to awaken'
        buttonA.innerHTML = 'You cast a beam of white light at it'
        buttonB.innerHTML = 'You try and sneak around the room using the shadows and rocks'
      }
@@ -117,13 +117,14 @@ let image = document.getElementById('pic')
 
   if(i==9) {
       image.src = "images/orb.png"
-      description.innerHTML = 'Well done on answering my riddle you have freed me from the curse binding me to this statue, continue on your journey up the tower but before you go please accept my gift'
+      description.innerHTML = 'Well done on answering my riddle. by doing so you have helped break the curse put on me by the creator this evil tower, please accept this gift before you leave gift'
       buttonA.innerHTML = 'Take his gift of strength'
       buttonB.innerHTML = 'Say you are honored but will have to refuse'
   }
 
 if(i==10){
   attack += 10
+  image.src = "images/door.png"
   description.innerHTML = 'You feel stronger than ever before as you enter the next floor'
   buttonA.innerHTML = 'Be cautious as you enter the next floor'
   /////You enter the floor and don't see anything
@@ -146,7 +147,8 @@ if (i==11){
 }
 
 if (i==12){
-  description.innerHTML = 'As you loook around the room you a GIANT CHAMELEON HANGING FROM THE CEILING STARING AT YOU'
+    image.src = "images/iguanadon.png"
+  description.innerHTML = 'As you look around the room you notice a giant chameleon hanging from the ceiling staring at you'
   buttonA.innerHTML = "Sneak around the room moving out of the chameleon's field of view and reach"
   //////// Look around you spot the chameleeon and can fight ot sneak
   ////////fight links up with other path
@@ -155,15 +157,48 @@ if (i==12){
 }
 
 if(i==13){
-  if(sneak >= 15){
+  if(stealth >= 15){
   description.innerHTML = "The chameleon doen't notice you as you slowly move around chamber avoiding his eye sight and making no noise"
-  buttonA.innerHTML = 'Move up to the next floor immediatly'
-  buttonB.innerHTML = ''
-
+  buttonA.innerHTML = 'Move to the next floor'
+  buttonB.innerHTML = 'Look around the room for extra loot'
   }else{
-
+  description.innerHTML = "The chameleon notices you as you failed to hide from his sight"
+  buttonA.innerHTML = 'Attack the Chameleon'
+  buttonB.innerHTML = 'Stand Still'
   }
 }
+
+if(i==14){
+  i=15
+    image.src = "images/chameleonjuice.png"
+  description.innerHTML = "The chameleon drops down from the ceiling shaking the ground as he lands and spitting acid onto you"
+  buttonA.innerHTML = "Use your staff and go in for a close range attack"
+  buttonB.innerHTML = "Attempt to calm down and pacify the chameleon using a spell"
+}
+
+if(i==16){
+  if(attack <= 11){
+    text = "undogable staff attacks and it can only flail its arms in defense"
+  }else{
+    health -=10
+    text = "staff hits, but it flails it's arms and blocks some of your attacks in response delivering a strong blow to your forearm"
+  }
+  description.innerHTML = `You dash up to the chameleon hitting it with a flury of ${text}`
+  buttonA.innerHTML = "Summon an ice chunk to finish of the chameleon"
+  buttonB.innerHTML = "Hit it with a magic missle to finsh it off"
+}
+
+if(i==17){
+  description.innerHTML = "The chameleon falls over as the massive chunk of ice hits him pinning him to the ground"
+  buttonA.innerHTML = "Head up to the next floor charging your magic for the dragon ahead"
+  buttonB.innerHTML = "Advance to the next floor healing all the damage you sustained on your journey to the top of the tower"
+}
+
+if(i==18){
+
+}
+
+
 
   }else if (which == 2){
     if (i == 0){
@@ -174,7 +209,7 @@ if(i==13){
       attack = 10
       image.src = "images/market.png"
       description.innerHTML = 'Before you set off on your journey you stop in the local town to gather supplies'
-      buttonA.innerHTML = 'You use ingriendients from the market to craft potions of invisibility'
+      buttonA.innerHTML = 'You use ingriendients from the market to craft potions that will muffle your movement'
       buttonB.innerHTML = 'You visit the armor smith and get a Mythril Chestplate'
     }
 
@@ -207,7 +242,7 @@ if(i==13){
     if (check == 'magic'){
         description.innerHTML = 'The alligator relaxs its jaw and slides back into the water allowing you to get to the tower'
         buttonA.innerHTML = 'You tie up the boat before heading inside'
-        buttonB.innerHTML = 'You go straight into the tower after swimming through the river'
+        buttonB.innerHTML = 'You go straight into the tower after crossing the river'
     }else if (check == 'stealth'){
       if(stealth >= 7){
       description.innerHTML = 'The alligator does not seem to notice you and you are able to slip right past'
@@ -228,20 +263,20 @@ if(i==13){
     image.src = "images/skeleton.png"
     description.innerHTML = 'As you make it into the tower, the doors creak as you push them open causing a long dead warrior to awaken'
     buttonA.innerHTML = 'You cast a beam of white light at it'
-    buttonB.innerHTML = 'You look around the room'
+    buttonB.innerHTML = 'You look around the room and try to sneak around the skelton using the shadows'
   }
 
  if(i == 5){
    if(stealth >= 7){
    image.src = "images/sneak.png"
-   description.innerHTML = 'As you sneak around the room the sketon does not notice you'
+   description.innerHTML = 'As you sneak around the room the skeleton does not notice you'
    buttonA.innerHTML = 'Go right to the door and open it to go to the next floor'
    buttonB.innerHTML = 'Take a longer path around the room that is darker to get to the next floor'
  }else{
    health -= 20
    console.log(i)
    image.src ="images/swordpile.png"
-   description.innerHTML = 'As you sneak around the room the sketon notices you and jabs you with his sword forcing you to shoot a blast of light at him causing him to disintigrate'
+   description.innerHTML = 'As you sneak around the room the skeleton notices you and jabs you with his sword forcing you to shoot a blast of light at him causing him to disintigrate'
    buttonA.innerHTML = 'Heal the wound and head to the next floor'
    buttonB.innerHTML = 'Take his sword with you and head to the next floor'
  }
@@ -278,7 +313,8 @@ if (i==8) {
 }
 
 if(i==10) {
-  attack += 10
+  statue = true
+  image.src = "images/door.png"
   description.innerHTML = 'You feel relieved knowing you helped free the soul stuck in the statue as you move to the next floor'
   buttonA.innerHTML = 'Be cautious as you enter the next floor'
   /////You enter the floor and don't see anything
@@ -291,7 +327,7 @@ if(i==10) {
 }
 
 if(i==11){
-  i = 14
+  i = 15
 }
 
 if(i==12){
@@ -303,8 +339,43 @@ if(i==12){
   buttonB.value = "Quit"
 }
 
+if(i==13){
+  i = 15
+}
 
+if(i==14){
+  image.src = "images/darksouls.jpg"
+  description.innerHTML = "The chameleon notices you standing and shoots it's tongue out at you pulling into it's mouth"
+  buttonA.innerHTML = "Restart Your Journey"
+  buttonB.innerHTML = "Quit the Game"
+  buttonA.value = "Restart"
+  buttonB.value = "Quit"
+}
 
+if(i==15){
+  health -= 20
+  image.src = "images/chameleonjuice.png"
+  description.innerHTML = "The chameleon drops down from the ceiling shaking the ground as he lands and spitting acid onto you"
+  buttonA.innerHTML = "Use your staff and go in for a close range attack"
+  buttonB.innerHTML = "Attempt to calm down and pacify the chameleon using a spell"
+}
+
+if(i == 16){
+  health -= 20
+  description.innerHTML = "The chameleon sways as it feels the effects of your spell, flailing it's arms wildly as it struggles not to fall asleep"
+  buttonA.innerHTML = "Hit the chameleon with a chunk of ice to knock it out"
+  buttonB.innerHTML = "Wait for the chameleon to fall asleep"
+}
+
+if(i==17){
+  description.innerHTML = "The chameleon falls over after flailing it's arms and you are able to move to the next floor"
+  buttonA.innerHTML = "Head up to the next floor charging your magic for the dragon ahead"
+  buttonB.innerHTML = "Advance to the next floor healing all the damage you sustained on your journey to the top of the tower"
+}
+
+if(i==18){
+
+}
 
   }
 i++
@@ -315,6 +386,15 @@ if (buttonA.value == "Restart"){
 }else if(buttonB.value == "Quit"){
   buttonB.onclick= exit();
 }
+
+if(health <= 0){
+  image.src = "images/darksouls.jpg"
+  description.innerHTML = "You have taken too much damage and been too reckless in your journey to slay the dragon"
+  buttonA.innerHTML = "Restart"
+  buttonB.innerHTML = "Quit"
+  i=99
+}
+
 }
 
 function eventgen() {
