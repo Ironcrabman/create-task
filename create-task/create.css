@@ -18,7 +18,7 @@ table{
   border-style: groove;
   padding: 5px;
 }
-button{
+.choices{
   width:75%;
   height:50px;
   color: crimson;
@@ -27,8 +27,8 @@ button{
 
 #description{
   font-size: 20px
+}
 
-
-
-
+#secret{
+  color: lavender;
 }

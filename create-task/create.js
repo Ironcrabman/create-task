@@ -110,6 +110,7 @@ let image = document.getElementById('pic')
           buttonB.innerHTML = "Quit the Game"
           buttonA.value = "Restart"
           buttonB.value = "Quit"
+          i=99
         }else {
           i++
         }
@@ -199,7 +200,6 @@ if(i==18){
 }
 
 
-
   }else if (which == 2){
     if (i == 0){
       ///Vincent's base stats
@@ -255,6 +255,7 @@ if(i==18){
       buttonB.innerHTML = "Quit the Game"
       buttonA.value = "Restart"
       buttonB.value = "Quit"
+      i=99
     }
     }
 }
@@ -307,6 +308,7 @@ if (i==8) {
       buttonB.innerHTML = "Quit the Game"
       buttonA.value = "Restart"
       buttonB.value = "Quit"
+      i=99
   }else {
     i++
   }
@@ -337,6 +339,7 @@ if(i==12){
   buttonB.innerHTML = "Quit the Game"
   buttonA.value = "Restart"
   buttonB.value = "Quit"
+  i=99
 }
 
 if(i==13){
@@ -350,6 +353,7 @@ if(i==14){
   buttonB.innerHTML = "Quit the Game"
   buttonA.value = "Restart"
   buttonB.value = "Quit"
+  i=99
 }
 
 if(i==15){
@@ -378,14 +382,14 @@ if(i==18){
 }
 
   }
+
+  if(which==1 && i==100){
+      refresh();
+  }else if(which==2 && i==100){
+    exit();
+  }
+
 i++
-
-
-if (buttonA.value == "Restart"){
-  buttonA.onclick = refresh();
-}else if(buttonB.value == "Quit"){
-  buttonB.onclick= exit();
-}
 
 if(health <= 0){
   image.src = "images/darksouls.jpg"
@@ -397,9 +401,10 @@ if(health <= 0){
 
 }
 
+
 function eventgen() {
   special = Math.floor((Math.random() * 10) + 1);
-  if(special >= 0){ ////////////CHANGE THISS BVACKCKCKCCKCKCKCKCKCK
+  if(special >= 4){
     special = true
     return special
   }else {
@@ -418,4 +423,8 @@ function refresh(){
 
 function exit(){
   window.location = "https://www.google.com/"
+}
+
+function secret(){
+  
 }

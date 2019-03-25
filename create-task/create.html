@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 <script src="create.js"></script>
   <title>
-    The tower of Placeholder
+    The tower of Gythil
   </title>
 </head>
 <body>
@@ -17,9 +17,10 @@
       <tr><td align ="center" colspan="2" height="300px" width="600px"><img id = "pic" src="images/title.png"></td></tr>
       <tr><td colspan="2"><p align="center" id="descrip">How will you journey through the tower?</p></td></tr>
       <tr align="center">
-        <td><button id="A"onclick="choices(1);" value ="0">As Jariah the mage seeking knowledge about the ancient dragon and monsters within</button></td>
-        <td><button id="B"onclick="choices(2);" value = "0">As Vincent the warlock revenge on the dragon he believes destroyed his village</button></td>
+        <td><button class="choices" id="A"onclick="choices(1);" value ="0">As Jariah the mage seeking knowledge about the ancient dragon and monsters within</button></td>
+        <td><button class="choices" id="B"onclick="choices(2);" value = "0">As Vincent the warlock revenge on the dragon he believes destroyed his village</button></td>
       </tr>
     </table>
+      <button id="secret" onclick="secret();"></button>
   </div>
 </body>
