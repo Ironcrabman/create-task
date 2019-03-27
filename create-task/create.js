@@ -7,6 +7,8 @@ let special
 let check
 let combatv
 let statue = false
+let temp
+let text
 
 function choices(which) {
 let description = document.getElementById('descrip')
@@ -159,6 +161,7 @@ if (i==12){
 
 if(i==13){
   if(stealth >= 15){
+  i = 18
   description.innerHTML = "The chameleon doen't notice you as you slowly move around chamber avoiding his eye sight and making no noise"
   buttonA.innerHTML = 'Move to the next floor'
   buttonB.innerHTML = 'Look around the room for extra loot'
@@ -182,7 +185,7 @@ if(i==16){
     text = "undogable staff attacks and it can only flail its arms in defense"
   }else{
     health -=10
-    text = "staff hits, but it flails it's arms and blocks some of your attacks in response delivering a strong blow to your forearm"
+    text = "staff hits, but it flails it's arms and blocks some of your attacks and in response delivers a strong blow to your gut"
   }
   description.innerHTML = `You dash up to the chameleon hitting it with a flury of ${text}`
   buttonA.innerHTML = "Summon an ice chunk to finish of the chameleon"
@@ -196,7 +199,10 @@ if(i==17){
 }
 
 if(i==18){
-
+ console.log(health, stealth, attack)
+ attack += 10
+ ran();
+ description.innerHTML = "Show Text"
 }
 
 
@@ -264,7 +270,7 @@ if(i==18){
     image.src = "images/skeleton.png"
     description.innerHTML = 'As you make it into the tower, the doors creak as you push them open causing a long dead warrior to awaken'
     buttonA.innerHTML = 'You cast a beam of white light at it'
-    buttonB.innerHTML = 'You look around the room and try to sneak around the skelton using the shadows'
+    buttonB.innerHTML = 'You look around the room and try to sneak around the skeleton using the shadows'
   }
 
  if(i == 5){
@@ -378,6 +384,8 @@ if(i==17){
 }
 
 if(i==18){
+  console.log(health, stealth, attack)
+  health += 50
 
 }
 
@@ -425,6 +433,36 @@ function exit(){
   window.location = "https://www.google.com/"
 }
 
-function secret(){
-  
+function newPic1(){
+  let backImg = document.getElementById('A')
+  temp = (Math.random() * 100);
+  if (temp <= 25) {
+    backImg.color = "red";
+  } else if (temp <= 50  && temp > 25) {
+    backImg.color = "green";
+  } else if (temp <=75 && temp > 50){
+    backImg.color = "yellow";
+  } else{
+    backImg.color = "blue";
+  }
+  console.log(backImg.color);
+}
+
+function newPic2(){
+  let backImg = document.getElementById('B')
+  temp = (Math.random() * 100);
+  if (temp <= 25) {
+    backImg.color = "red";
+  } else if (temp <= 50  && temp > 25) {
+    backImg.color = "green";
+  } else if (temp <=75 && temp > 50){
+    backImg.color = "yellow";
+  } else{
+    backImg.color = "blue";
+  }
+}
+
+function ran() {
+  newPic1();
+  newPic2();
 }
