@@ -7,8 +7,11 @@ let special
 let check
 let combatv
 let statue = false
-let temp
-let text
+
+let temp1
+let temp2
+
+let todaysDate = Date()
 
 function choices(which) {
 let description = document.getElementById('descrip')
@@ -107,7 +110,7 @@ let image = document.getElementById('pic')
     if (i==8) {
         if (check == "smoke"){
           image.src = "images/darksouls.jpg"
-          description.innerHTML = "The smoke keeps pouring out of the statues mouth and eventually you can no longer breath"
+          description.innerHTML = `The smoke keeps pouring out of the statues mouth and eventually you can no longer breath, you died on ${todaysDate}`
           buttonA.innerHTML = "Restart Your Journey"
           buttonB.innerHTML = "Quit the Game"
           buttonA.value = "Restart"
@@ -201,8 +204,7 @@ if(i==17){
 if(i==18){
  console.log(health, stealth, attack)
  attack += 10
- ran();
- description.innerHTML = "Show Text"
+ colorSwap();
 }
 
 
@@ -256,7 +258,7 @@ if(i==18){
       buttonB.innerHTML = 'You go straight into the tower after clearing the river'
     }else {
       image.src = "images/darksouls.jpg"
-      description.innerHTML = "You got gamed by the alligator"
+      description.innerHTML = `The alligator grasps your leg tightly and pulls you under water, you were unable to escape and you died on ${todaysDate}`
       buttonA.innerHTML = "Restart Your Journey"
       buttonB.innerHTML = "Quit the Game"
       buttonA.value = "Restart"
@@ -309,7 +311,7 @@ if (i==7) {
 if (i==8) {
   if (check == "smoke"){
       image.src = "images/darksouls.jpg"
-      description.innerHTML = "The smoke keeps pouring out of the statues mouth and eventually you can no longer breath"
+      description.innerHTML = `The smoke keeps pouring out of the statues mouth and eventually you can no longer breath, you died on ${todaysDate}`
       buttonA.innerHTML = "Restart Your Journey"
       buttonB.innerHTML = "Quit the Game"
       buttonA.value = "Restart"
@@ -340,7 +342,7 @@ if(i==11){
 
 if(i==12){
   image.src = "images/darksouls.jpg"
-  description.innerHTML = "As you move through the room a tongue comes out of nowhere and sticks to you pulling up towards the ceiling with no escape the last thing you see being a giant chameleon"
+  description.innerHTML = `As you move through the room a tongue comes out of nowhere and sticks to you pulling up towards the ceiling with no escape the last thing you see being a giant chameleon, you died on ${todaysDate}`
   buttonA.innerHTML = "Restart Your Journey"
   buttonB.innerHTML = "Quit the Game"
   buttonA.value = "Restart"
@@ -354,7 +356,7 @@ if(i==13){
 
 if(i==14){
   image.src = "images/darksouls.jpg"
-  description.innerHTML = "The chameleon notices you standing and shoots it's tongue out at you pulling into it's mouth"
+  description.innerHTML = `The chameleon notices you standing and shoots it's tongue out at you pulling into it's mouth, you died on ${todaysDate}`
   buttonA.innerHTML = "Restart Your Journey"
   buttonB.innerHTML = "Quit the Game"
   buttonA.value = "Restart"
@@ -386,7 +388,7 @@ if(i==17){
 if(i==18){
   console.log(health, stealth, attack)
   health += 50
-
+  colorSwap();
 }
 
   }
@@ -401,7 +403,7 @@ i++
 
 if(health <= 0){
   image.src = "images/darksouls.jpg"
-  description.innerHTML = "You have taken too much damage and been too reckless in your journey to slay the dragon"
+  description.innerHTML = `You have taken too much damage and been too reckless in your journey to slay the dragon, you died on ${todaysDate}`
   buttonA.innerHTML = "Restart"
   buttonB.innerHTML = "Quit"
   i=99
@@ -433,36 +435,37 @@ function exit(){
   window.location = "https://www.google.com/"
 }
 
-function newPic1(){
-  let backImg = document.getElementById('A')
-  temp = (Math.random() * 100);
-  if (temp <= 25) {
-    backImg.color = "red";
-  } else if (temp <= 50  && temp > 25) {
-    backImg.color = "green";
-  } else if (temp <=75 && temp > 50){
-    backImg.color = "yellow";
+function newColor1(){
+  let backImg1 = document.getElementById("A")
+  temp1 = (Math.random() * 100);
+  if (temp1 <= 25) {
+    backImg1.style.backgroundColor = "Khaki";
+  } else if (temp1 <= 50  && temp1 > 25) {
+    backImg1.style.backgroundColor = "PowderBlue";
+  } else if (temp1 <=75 && temp1 > 50){
+    backImg1.style.backgroundColor = "Gold";
   } else{
-    backImg.color = "blue";
+    backImg1.style.backgroundColor = "MistyRose";
   }
-  console.log(backImg.color);
+  console.log(backImg1.style.backgroundColor);
 }
 
-function newPic2(){
-  let backImg = document.getElementById('B')
-  temp = (Math.random() * 100);
-  if (temp <= 25) {
-    backImg.color = "red";
-  } else if (temp <= 50  && temp > 25) {
-    backImg.color = "green";
-  } else if (temp <=75 && temp > 50){
-    backImg.color = "yellow";
+function newColor2(){
+  let backImg2 = document.getElementById("B")
+  temp2 = (Math.random() * 100);
+  if (temp2 <= 25) {
+    backImg2.style.backgroundColor = "Khaki";
+  } else if (temp2 <= 50  && temp2 > 25) {
+    backImg2.style.backgroundColor = "PowderBlue";
+  } else if (temp2 <=75 && temp2 > 50){
+    backImg2.style.backgroundColor = "Gold";
   } else{
-    backImg.color = "blue";
+    backImg2.style.backgroundColor = "MistyRose";
   }
+  console.log(backImg2.style.backgroundColor);
 }
 
-function ran() {
-  newPic1();
-  newPic2();
+function colorSwap() {
+  newColor1();
+  newColor2();
 }
