@@ -7,7 +7,7 @@ let special
 let check
 let combatv
 let statue = false
-
+let wing
 let temp1
 let temp2
 
@@ -205,8 +205,46 @@ if(i==18){
  console.log(health, stealth, attack)
  attack += 10
  colorSwap();
+ image.src = "images/finally.png"
+ special = "strongMagic"
+ description.innerHTML = "As you reach the top of the tower a thick smoke fills the air as it starts to clear you hear a guttoral roar and see the dragon fly onto the platform. You feel ready to face it as your staff"
+ buttonA.innerHTML = "Attack the dragon at a distance by summoning lighting to strike it"
+ buttonB.innerHTML = "Try getting up close to the dragon and using your staff for close range attacks"
 }
 
+if(i==19){
+ console.log(health, stealth, attack)
+ colorSwap();
+ if(special == "strongMagic"){
+   description.innerHTML = "The charged up magic you have is released as the lighting come down on the dragon dealing a devestating blow to his wings"
+   buttonA.innerHTML = "Stay at a range and use ice magic on it "
+   buttonB.innerHTML = "Move in close as it is now crippled"
+ }else{
+   special = "weakMagic"
+ description.innerHTML = "You summon lighting down on the dragon only temporarily stunning him"
+ buttonA.innerHTML = "Stay at a distance and try to sneak around it looking for a weak spot"
+ buttonB.innerHTML = "Try to get up close and hit it with a melee attack"
+}
+
+}
+
+
+if (i==20){
+  if(special == "strongMagic"){
+   description.innerHTML = "The dragon breathes fire at you as it tries to melt a volley of ice spears you sent at it. You see that many of the spears made it and the dragon is in pain"
+   buttonA.innerHTML = "Try to use the ground it is standing on to finish it off"
+   buttonB.innerHTML = "Run up to the dragon and finish it off with a close range spell"
+ }else if(special == "weakMagic" || special == "weakAttack"){
+   if(stealth >= 15)
+    description.innerHTML = "As you sneak around the dragon you notice a spot where it is missing scales"
+    buttonA.innerHTML = "Stay where you are an keep observing"
+    buttonB.innerHTML = "Rush up to the dragon attempting to hit it in the scaless spot"
+  }else if(special == "strongAttack"){
+    description.innerHTML = "You grab the dragon by it's horns and pull yourself onto it's head"
+    buttonA.innerHTML = "Try to put the dragon to sleep using your calm spell"
+    buttonB.innerHTML = "Turn your staff into a great sword and plung it into the dragon's head"
+  }
+}
 
   }else if (which == 2){
     if (i == 0){
@@ -389,7 +427,47 @@ if(i==18){
   console.log(health, stealth, attack)
   health += 50
   colorSwap();
+  image.src = "images/finally.png"
+  description.innerHTML = "As you reach the top of the tower a thick smoke fills the air as it starts to clear you hear a guttoral roar and see the dragon fly onto the platform. You feel ready to face it as your staff"
+  buttonA.innerHTML = "Attack the dragon at a distance by summoning lighting to strike it"
+  buttonB.innerHTML = "Try getting up close to the dragon and using your staff for close range attacks"
 }
+
+if(i==19){
+ console.log(health, stealth, attack)
+ colorSwap();
+  if(attack > 21){
+    special = "strongAttack"
+    description.innerHTML = "You rush up to the dragon as it is still observing you and deliver multiple brutal blows using ice magic to turn your staff into a warhammer"
+    buttonA.innerHTML = "Try to mount the dragon as it seems stunned"
+    buttonB.innerHTML = "Try and cripple it's wings so it cannot escape"
+  }else{
+    health -=10
+    special = "weakAttack"
+    description.innerHTML = "As your rush up to the dragon it uses it's wings to create a gust of wind that knocks you off balence and forces you to retreat"
+    buttonA.innerHTML = "Attempt to sneak around the dragon and look for a weak point"
+    buttonB.innerHTML = "Try to rush up to the dragon again"
+}
+}
+
+if (i==20){
+  if(special == strongMagic){
+
+  }else if(special == weakMagic || special == weakAttack){
+    description.innerHTML = ""
+    buttonA.innerHTML = ""
+    buttonB.innerHTML = ""
+
+  }else if(special == strongAttack) {
+
+  }
+
+
+
+
+}
+
+
 
   }
 
