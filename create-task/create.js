@@ -232,20 +232,47 @@ if(i==19){
 if (i==20){
   if(special == "strongMagic"){
    description.innerHTML = "The dragon breathes fire at you as it tries to melt a volley of ice spears you sent at it. You see that many of the spears made it and the dragon is in pain"
-   buttonA.innerHTML = "Try to use the ground it is standing on to finish it off"
+   buttonA.innerHTML = "Finsh off the dragon using the ground below it"
    buttonB.innerHTML = "Run up to the dragon and finish it off with a close range spell"
  }else if(special == "weakMagic" || special == "weakAttack"){
-   if(stealth >= 15)
+   if(stealth >= 15){
     description.innerHTML = "As you sneak around the dragon you notice a spot where it is missing scales"
-    buttonA.innerHTML = "Stay where you are an keep observing"
+    buttonA.innerHTML = "Stay where you are and keep observing, waiting for an opening"
     buttonB.innerHTML = "Rush up to the dragon attempting to hit it in the scaless spot"
+  }else{
+    description.innerHTML = `The dragon scorches you in fire as it sees you attempt to sneak around it. You burned to a crisp on ${todaysDate}`
+    buttonA.innerHTML = "Restart your journey"
+    buttonB.innerHTML = "Quit the Game"
+  }
   }else if(special == "strongAttack"){
     description.innerHTML = "You grab the dragon by it's horns and pull yourself onto it's head"
-    buttonA.innerHTML = "Try to put the dragon to sleep using your calm spell"
-    buttonB.innerHTML = "Turn your staff into a great sword and plung it into the dragon's head"
+    buttonA.innerHTML = "Ride the dragon and make it fall off the tower"
+    buttonB.innerHTML = "Turn your staff into a great sword and plung it into the dragon's head and cut it off"
   }
 }
 
+if(i==21){
+  i=99
+  image.src = "images/end.png"
+  if(name == "Jariah"){
+    name = "with the dragon defeated you were able to complete your research allowing you to become the wisest mage in all the lands and create a cure for the disease affecting your homeland"
+  }else{
+    name = "with the dragon defeated you can now rest easy knowing you have avenged your family and town. You do not know where you will go from here but for now you are at peace."
+  }
+  if(special == "strongMagic"){
+   description.innerHTML = `The dragon dies as it is hit with a huge stone pulled from the ground ${name}`
+   buttonA.innerHTML = "Go on another adventure"
+   buttonB.innerHTML = "Quit the Game"
+ }else if(special == "weakMagic" || special == "weakAttack"){
+    description.innerHTML = `You break from your cover when you seen an opening and stab it in the weak spot causing it to let out one last roar and slump over. ${name}`
+    buttonA.innerHTML = "Go on another journey up the tower"
+    buttonB.innerHTML = "Quit the Game"
+  }else if(special == "strongAttack"){
+    description.innerHTML = `You use the last of your strength and magic to push the dragon off the tower and see it fall through the clouds to the ground ${name}`
+    buttonA.innerHTML = "Start a new journey"
+    buttonB.innerHTML = "Quit the Game"
+  }
+}
   }else if (which == 2){
     if (i == 0){
       ///Vincent's base stats
@@ -428,7 +455,7 @@ if(i==18){
   health += 50
   colorSwap();
   image.src = "images/finally.png"
-  description.innerHTML = "As you reach the top of the tower a thick smoke fills the air as it starts to clear you hear a guttoral roar and see the dragon fly onto the platform. You feel ready to face it as your staff"
+  description.innerHTML = "As you reach the top of the tower a thick smoke fills the air as it starts to clear you hear a guttoral roar and see the dragon fly onto the platform. You feel ready to face it as your body tingles with magic"
   buttonA.innerHTML = "Attack the dragon at a distance by summoning lighting to strike it"
   buttonB.innerHTML = "Try getting up close to the dragon and using your staff for close range attacks"
 }
@@ -436,7 +463,7 @@ if(i==18){
 if(i==19){
  console.log(health, stealth, attack)
  colorSwap();
-  if(attack > 21){
+  if(attack > 25){
     special = "strongAttack"
     description.innerHTML = "You rush up to the dragon as it is still observing you and deliver multiple brutal blows using ice magic to turn your staff into a warhammer"
     buttonA.innerHTML = "Try to mount the dragon as it seems stunned"
@@ -451,21 +478,46 @@ if(i==19){
 }
 
 if (i==20){
-  if(special == strongMagic){
-
-  }else if(special == weakMagic || special == weakAttack){
-    description.innerHTML = ""
-    buttonA.innerHTML = ""
-    buttonB.innerHTML = ""
-
-  }else if(special == strongAttack) {
-
+  if(special == "strongMagic"){
+    description.innerHTML = "As you rush up to the dragon you envelop your staff in magic and bring it down onto the dragon's head"
+    buttonA.innerHTML = "Freeze the dragon completly"
+    buttonB.innerHTML = "Fry the dragon with electricity"
+  }else if(special == "weakMagic" || special == "weakAttack"){
+    i=99
+    image.src = "images/darksouls.png"
+    description.innerHTML = `As you rush up to the dragon and approch the weak point it lifts off the ground and into the air and squishes you with it's claws. You died at ${todaysDate}`
+    buttonA.innerHTML = "Restart your Journey"
+    buttonB.innerHTML = "Quit the Game"
+  }else if(special == "strongAttack") {
+    description.innerHTML = "You move around the dragon hitting its wings as it tries to protect itself"
+    buttonA.innerHTML = "Push the dragon off the tower"
+    buttonB.innerHTML = "Cut off it's head"
   }
-
-
-
-
 }
+
+if(i==21){
+  i=99
+  image.src = "images/end.png"
+  if(name == "Jariah"){
+    name = "with the dragon defeated you were able to complete your research allowing you to become the wisest mage in all the lands and create a cure for the disease affecting your homeland"
+  }else{
+    name = "with the dragon defeated you can now rest easy knowing you have avenged your family and town. You do not know where you will go from here but for now you are at peace."
+  }
+  if(special == "strongMagic"){
+   description.innerHTML = `You run up to the dragon hitting it with one final blow sending a shockwave through it's body ${name}`
+   buttonA.innerHTML = "Go on another adventure"
+   buttonB.innerHTML = "Quit the Game"
+ }else if(special == "weakMagic" || special == "weakAttack"){
+    description.innerHTML = `As you rush up to the dragon it shoots into the air and impales you with its tail ${todaysDate}`
+    buttonA.innerHTML = "Restart your Journey"
+    buttonB.innerHTML = "Quit the Game"
+  }else if(special == "strongAttack"){
+    description.innerHTML = `The dragon's head rolls across the floor as you deliver the final blow ${name}`
+    buttonA.innerHTML = "Start a new journey"
+    buttonB.innerHTML = "Quit the Game"
+  }
+}
+
 
 
 
