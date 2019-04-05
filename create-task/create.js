@@ -484,7 +484,7 @@ if (i==20){
     buttonB.innerHTML = "Fry the dragon with electricity"
   }else if(special == "weakMagic" || special == "weakAttack"){
     i=99
-    image.src = "images/darksouls.png"
+    image.src = "images/darksouls.jpg"
     description.innerHTML = `As you rush up to the dragon and approch the weak point it lifts off the ground and into the air and squishes you with it's claws. You died at ${todaysDate}`
     buttonA.innerHTML = "Restart your Journey"
     buttonB.innerHTML = "Quit the Game"
