@@ -508,6 +508,7 @@ if(i==21){
    buttonA.innerHTML = "Go on another adventure"
    buttonB.innerHTML = "Quit the Game"
  }else if(special == "weakMagic" || special == "weakAttack"){
+   image.src = "images/darksouls.jpg"
     description.innerHTML = `As you rush up to the dragon it shoots into the air and impales you with its tail ${todaysDate}`
     buttonA.innerHTML = "Restart your Journey"
     buttonB.innerHTML = "Quit the Game"
